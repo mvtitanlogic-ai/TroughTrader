@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-trough-bg text-trough-text font-sans;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-trough-surface;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-trough-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-trough-muted;
+  }
+}
+
+@layer components {
+  .card-base {
+    @apply bg-trough-card border border-trough-border rounded-xl;
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
+  }
+
+  .glass {
+    background: rgba(20, 20, 32, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .ticker-container {
+    -webkit-app-region: no-drag;
+  }
+}
+
+@layer utilities {
+  .text-gain {
+    @apply text-emerald-400;
+  }
+
+  .text-loss {
+    @apply text-red-400;
+  }
+
+  .bg-gain {
+    @apply bg-emerald-500/10;
+  }
+
+  .bg-loss {
+    @apply bg-red-500/10;
+  }
+
+  .drag-region {
+    -webkit-app-region: drag;
+  }
+
+  .no-drag {
+    -webkit-app-region: no-drag;
+  }
+}

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-electron/
+.env
+.env.local
+*.log
+data/db/*.db
+data/db/*.duckdb
+data/vectors/
+.DS_Store
+release/
+out/

@@ -1,0 +1,67 @@
+{
+  "name": "troughtrader",
+  "version": "0.1.0",
+  "description": "For traders who are always in the trough. Cheap trades. Deep lessons. Zero judgment.",
+  "main": "dist-electron/main.cjs",
+  "scripts": {
+    "dev": "concurrently --kill-others \"npm run dev:server\" \"npm run dev:vite\" \"npm run dev:electron\"",
+    "dev:server": "node server/index.js",
+    "dev:vite": "vite",
+    "dev:electron": "wait-on tcp:5173 && wait-on tcp:3001 && electron .",
+    "dev:web": "concurrently --kill-others \"npm run dev:server\" \"vite\"",
+    "build": "tsc -p tsconfig.electron.json && vite build",
+    "build:electron": "npm run build && electron-builder",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "framer-motion": "^11.2.10",
+    "lucide-react": "^0.395.0",
+    "recharts": "^2.12.7",
+    "yahoo-finance2": "^2.11.3",
+    "zustand": "^4.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.3.0",
+    "@nivo/core": "^0.87.0",
+    "@nivo/sankey": "^0.87.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "electron": "^31.0.2",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.4.5",
+    "vite": "^5.3.1",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "ai.titanlogic.troughtrader",
+    "productName": "TroughTrader",
+    "mac": {
+      "icon": "public/icon.icns",
+      "category": "public.app-category.finance"
+    },
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "server/**/*",
+      "data/**/*"
+    ]
+  }
+}
