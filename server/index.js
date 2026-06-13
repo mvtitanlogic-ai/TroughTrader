@@ -5,7 +5,7 @@ import { chatRouter } from './routes/chat.js'
 import { dataRouter } from './routes/data.js'
 
 const app = express()
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 6001
 
 app.use(cors({ origin: ['http://localhost:5173', 'file://*'] }))
 app.use(express.json({ limit: '10mb' }))

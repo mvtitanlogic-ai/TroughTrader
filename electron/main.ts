@@ -13,7 +13,7 @@ function startApiServer() {
     : path.join(process.resourcesPath, 'server/index.js')
 
   apiServer = spawn('node', [serverPath], {
-    env: { ...process.env, PORT: '3001' },
+    env: { ...process.env, PORT: '6001' },
     stdio: 'inherit',
   })
 
